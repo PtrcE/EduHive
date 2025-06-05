@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from "axios";
 import {
   Box,
   Button,
@@ -14,21 +15,25 @@ const CreatePostPage = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newPost = {
+      author: "Anonymous",
       title,
       body,
-      author: 'Anonymous',
-      createdAt: new Date().toISOString(),
-      upvotes: 0,
-      comments: 0,
     };
+    
 
-    console.log('Submitting post:', newPost);
-    // Add fetch or axios post call here
+    try {
+      const res = await axios.post("http://localhost:5000/api/posts", newPost);
+      console.log("Post created:", res.data);
+    } catch (error) {
+      console.error("Error posting:", error);
+    }
   };
+
 
   return (
     <Box maxW="md" mx="auto" mt={10} p={6} borderWidth={1} borderRadius="lg" boxShadow="md">

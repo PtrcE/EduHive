@@ -14,13 +14,16 @@ const SignupPage = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('username', res.data.username);
-
-      navigate('/');
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/signup",
+        formData
+      );
+      navigate("/login");
     } catch (err) {
-      console.error('Signup error:', err.response?.data?.message || err.message);
+      console.error(
+        "Signup error:",
+        err.response?.data?.message || err.message
+      );
     }
   };
 

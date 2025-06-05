@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
@@ -7,11 +6,11 @@ import SignupPage from './pages/SignupPage';
 import CreatePostPage from './pages/CreatePostPage';
 import PostList from './components/PostList';
 
-import { UserProvider } from './context/UserContext'; // 👈 Import UserProvider
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
-    <UserProvider> {/* 👈 Wrap everything inside */}
+    <UserProvider>
       <Router>
         <NavBar />
         <Routes>
