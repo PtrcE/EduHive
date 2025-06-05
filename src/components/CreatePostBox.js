@@ -18,7 +18,10 @@ const CreatePostBox = ({ onPostSubmit }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/posts', newPost);
+      const response = await axios.post(
+        "https://eduhive-s4wm.onrender.com/api/posts",
+        newPost
+      );
 
       onPostSubmit(response.data); // Add it to homepage
       setTitle('');

@@ -1,5 +1,3 @@
-// components/PostList.js
-import React from 'react';
 import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 
 const samplePosts = [

@@ -33,7 +33,7 @@ const CommentModal = ({
   useEffect(() => {
     if (isOpen) {
       axios
-        .get(`http://localhost:5000/api/posts/${postId}/comments`)
+        .get(`https://eduhive-s4wm.onrender.com/api/posts/${postId}/comments`)
         .then((res) => setComments(res.data))
         .catch(console.error);
     }
@@ -43,7 +43,7 @@ const CommentModal = ({
     if (!newComment.trim()) return;
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/comments`,
+        `https://eduhive-s4wm.onrender.com/api/posts/${postId}/comments`,
         {
           author: currentUser?.username || "Anonymous",
           text: newComment,
